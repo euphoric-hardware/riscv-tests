@@ -3,8 +3,6 @@
 // Test of PMP functionality.
 
 #include <stdint.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "util.h"
 
 volatile int trap_expected;
@@ -188,7 +186,7 @@ static void detect_granule()
   uintptr_t ret = read_csr(pmpaddr0);
   int g = 2;
   for(uintptr_t i = 1; i; i<<=1) {
-    if((ret & i) != 0) 
+    if((ret & i) != 0)
       break;
     g++;
   }

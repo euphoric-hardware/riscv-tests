@@ -11,7 +11,6 @@
 // dataset1.h
 
 #include "util.h"
-#include <string.h>
 #include <limits.h>
 
 //--------------------------------------------------------------------------
@@ -37,7 +36,7 @@ void sort(size_t n, type* arrIn, type* scratchIn)
   asm("":"+r"(bucket));
   type *arr = arrIn, *scratch = scratchIn, *p;
   size_t *b;
- 
+
   while (log_exp < CHAR_BIT * sizeof(type))
   {
     for (b = bucket; b < bucket + BASE; b++)

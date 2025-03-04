@@ -6,7 +6,6 @@
 //
 // This benchmark tests a vectorized strcmp implementation.
 
-#include <string.h>
 #include "util.h"
 
 //--------------------------------------------------------------------------

@@ -1,10 +1,7 @@
 // See LICENSE for license details.
 
 #include "common.h"
-#include <assert.h>
-#include <math.h>
 #include <stdint.h>
-#include <alloca.h>
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 

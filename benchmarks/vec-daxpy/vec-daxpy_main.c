@@ -9,7 +9,6 @@
 // the daxpy_gendata.pl perl script and dumped to a file named
 // dataset1.h.
 
-#include <string.h>
 #include "util.h"
 
 //--------------------------------------------------------------------------

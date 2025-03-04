@@ -48,13 +48,13 @@
 # in inner loop, but otherwise does not cache or TLB tiling.
 
 vec_sgemm_nn:
-    ld cstride, 0(sp)   # Get arg from stack frame	
+    ld cstride, 0(sp)   # Get arg from stack frame
     addi sp, sp, -FRAMESIZE
     sd s0, 0(sp)
     sd s1, 8(sp)
     sd s2, 16(sp)
 
-    # Check for zero size matrices        
+    # Check for zero size matrices
     beqz n, exit
     beqz m, exit
     beqz k, exit
@@ -75,7 +75,7 @@ c_row_loop: # Loop across rows of C blocks
     mv cnp, cp # Initialize C n-loop pointer
 
 c_col_loop: # Loop across one row of C blocks
-    vsetvli nvl, nt, e32, ta, ma  # 32-bit vectors, LMUL=1
+    vsetvli nvl, nt, e32, m1, ta, ma  # 32-bit vectors, LMUL=1
 
     mv akp, ap   # reset pointer into A to beginning
     mv bkp, bnp # step to next column in B matrix
@@ -171,7 +171,7 @@ c_col_loop: # Loop across one row of C blocks
     j k_loop
 
 1:  vfmacc.vf v15, ft15, v16
-    
+
     # Save C matrix block back to memory
     vse32.v  v0, (cnp); add ccp, cnp, cstride;
     vse32.v  v1, (ccp); add ccp, ccp, cstride;
@@ -206,7 +206,7 @@ c_col_loop: # Loop across one row of C blocks
     add ap, ap, t6         # Move A matrix pointer down 16 rows
     slli t6, cstride, 4  # Multiply cstride by 16
     add cp, cp, t6         # Move C matrix pointer down 16 rows
-    
+
     slti t6, m, 16
     beqz t6, c_row_loop
 

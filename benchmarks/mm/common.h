@@ -3,9 +3,8 @@
 #ifndef _MM_H
 #define _MM_H
 
-#include <string.h>
 #include <stdint.h>
-#include <math.h>
+#include "util.h"
 
 #ifdef SP
 typedef float t;

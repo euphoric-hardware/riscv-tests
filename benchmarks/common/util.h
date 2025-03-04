@@ -3,6 +3,9 @@
 #ifndef __UTIL_H
 #define __UTIL_H
 
+typedef __SIZE_TYPE__ size_t;
+#define NULL ((void *)0)
+
 extern void setStats(int enable);
 
 #include <stdint.h>

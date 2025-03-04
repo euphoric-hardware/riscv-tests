@@ -11,8 +11,8 @@
 // dataset1.h.
 
 #include "util.h"
-#include <string.h>
-#include <assert.h>
+//#include <string.h>
+//#include <assert.h>
 
 // The INSERTION_THRESHOLD is the size of the subarray when the
 // algorithm switches to using an insertion sort instead of
